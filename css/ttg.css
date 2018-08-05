@@ -9,12 +9,12 @@ body {
 	user-select: none;
 }
 
-#topbar{
+#topbar {
 	/*position: absolute;*/
 	left: 0px;
 }
 
-#game{
+#game {
 	position: absolute;
 	left: 0px;
 	top: 32px;
@@ -23,21 +23,21 @@ body {
 	overflow: hidden;
 }
 
-#leftpanel{
+#leftpanel {
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	width: 30%;
+	width: 33%;
 	bottom: 0px;
 	min-width: 100px;
 	overflow: hidden;
 }
 
-#leftCanvas{
+#leftCanvas {
 	cursor: pointer;
 }
 
-#middlepanel{
+#middlepanel {
 	position: absolute;
 	left: 30%;
 	padding-left: 3px;
@@ -46,13 +46,13 @@ body {
 	top: 0px;
 	right: 318px;
 	bottom: 0px;
-	min-width: 100px;
+	width: 34%;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	background-color: white;
 }
 
-#rightpanel{
+#rightpanel {
 	height: 100%;
 	position: absolute;
 	top: 0px;
@@ -61,15 +61,15 @@ body {
 	overflow-y: scroll;
 }
 
-#greeting{
+#greeting {
 	cursor: pointer;
 }
 
-.grayed{
+.grayed {
 	background-color: #666;
 }
 
-.notgrayed{
+.notgrayed {
 	background-color: #fff;
 	cursor: pointer;
 }
