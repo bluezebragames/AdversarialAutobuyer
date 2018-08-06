@@ -8,8 +8,7 @@
 <body>
 	<div id="game">
 		<div id="leftpanel" class="game">
-			<div id="greeting" onclick="Game.newName()"></div>
-			<canvas id="leftCanvas" style"z-order: 0;"></canvas>
+			<canvas id="leftCanvas"></canvas>
 			<div id="words"></div>
 			<div id="wordsps"></div>
 			<div id="wordspclick"></div>
@@ -21,7 +20,7 @@
 			<button onclick="Game.importSave()">Load save!</button>
 			<button onclick="Game.exportSave()">Export save!</button>
 			<button onclick="Game.reset(true)">HARD RESET</button>
-			
+			<hr />
 		</div>
 		<div id="tooltip" onmouseout="Game.tooltip.hide"></div>
 	</div>

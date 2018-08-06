@@ -25,24 +25,35 @@ class Game {
     }
 
     createBuildings() {
-        this.buildings.push(new Building("Building 1", 1, 10));
+        this.buildings.push(new Building("Building 1", 1, 10, 0));
+        this.buildings.push(new Building("Building 2", 100, 100, 0));
 
-        for (var building in this.buildings)
-            for (let i = 0; i < this.buildings.length; ++i) {
-                const building = this.buildings[i];
-                // create stat div on left panel
-                var div = document.createElement("div");
-                div.id = i + "stats";
-                var leftpanel = document.getElementById("leftpanel");
-                leftpanel.appendChild(div);
+        for (let i = 0; i < this.buildings.length; ++i) {
+            const building = this.buildings[i];
+            // create stat div on left panel
+            const statDiv = document.createElement("div");
+            statDiv.id = i + "stats";
+            var leftpanel = document.getElementById("leftpanel");
+            leftpanel.appendChild(statDiv);
 
-                // create buttons on right panel
-                div = document.createElement("div");
-                div.innerHTML = `<button id="button${i}">Buy one <span id="bname${i}">${building.name}</span></button><span id="b${i}"></span>`
-                div.id = `${i}`;
-                var rightpanel = document.getElementById("rightpanel");
-                rightpanel.appendChild(div);
+            // create buttons on right panel
+            const buttonDiv = document.createElement("div");
+            const button = document.createElement("button")
+            button.id = `button${i}`;
+            button.classList.add('button');
+            if(i % 2 == 0) {
+                button.classList.add('grayed');
             }
+            else {
+                button.classList.add('notgrayed');
+            }
+            button.innerHTML = `Buy one <span id="bname${i}">${building.name}</span>`;
+            buttonDiv.appendChild(button);
+            buttonDiv.id = `${i}`;
+            var rightpanel = document.getElementById("rightpanel");
+            rightpanel.appendChild(buttonDiv);
+        }
+
         var hr = document.createElement("hr");
         rightpanel.appendChild(hr);
     }
