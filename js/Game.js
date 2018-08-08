@@ -27,35 +27,6 @@ class Game {
     createBuildings() {
         this.buildings.push(new Building("Building 1", 1, 10, 0));
         this.buildings.push(new Building("Building 2", 100, 100, 0));
-
-        for (let i = 0; i < this.buildings.length; ++i) {
-            const building = this.buildings[i];
-            // create stat div on left panel
-            const statDiv = document.createElement("div");
-            statDiv.id = i + "stats";
-            var leftpanel = document.getElementById("leftpanel");
-            leftpanel.appendChild(statDiv);
-
-            // create buttons on right panel
-            const buttonDiv = document.createElement("div");
-            const button = document.createElement("button")
-            button.id = `button${i}`;
-            button.classList.add('button');
-            if(i % 2 == 0) {
-                button.classList.add('grayed');
-            }
-            else {
-                button.classList.add('notgrayed');
-            }
-            button.innerHTML = `Buy one <span id="bname${i}">${building.name}</span>`;
-            buttonDiv.appendChild(button);
-            buttonDiv.id = `${i}`;
-            var rightpanel = document.getElementById("rightpanel");
-            rightpanel.appendChild(buttonDiv);
-        }
-
-        var hr = document.createElement("hr");
-        rightpanel.appendChild(hr);
     }
 
     loop() {
@@ -63,6 +34,15 @@ class Game {
         for (var i = 0; i < this.buildings.length; ++i) {
             const building = this.buildings[i];
             this.words += building.wps * building.quantity / this.fps;
+
+            if (this.words >= building.cost) {
+                building.affordable = true;
+            }
+            else {
+                building.affordable = false;
+            }
+
+            building.tick();
         }
         const deltawords = this.words - words_before;
         this.wps = deltawords * this.fps;
